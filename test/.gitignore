@@ -1,0 +1,6 @@
+# IDE etc.
+/.idea
+/cmake-build-*
+/build*
+/.clangd
+/.cache

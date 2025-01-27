@@ -1,0 +1,56 @@
+# IDE etc.
+/.idea
+/cmake-build-*
+/build*
+/.clangd
+/.cache
+/support_tools/.idea
+/profile
+
+/dummy_data/egress_queue_vis
+/dummy_data/dfs_out_dump
+/dummy_data/energy
+
+/eval/input_data/
+
+*.json
+*.txt
+!CmakeLists.txt
+
+~$*.xlsx
+
+# compilation database
+compile_commands.json
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
