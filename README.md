@@ -1,6 +1,6 @@
 # advanced-Flow-scheduler
 
-Code base for TSN Flow scheduling with queuing.
+Code base for flow scheduling with queuing.
 
 When using the code, please cite the following paper:
 
@@ -16,10 +16,10 @@ arXiv, 2023
 
 - cmake (3.24 or later)
 - C++20 compiler (tested with GCC 13.1.0)
-- git 
-- python 3.9 (or later) 
+- git
+- python 3.9 (or later)
 
-### How to Build 
+### How to Build
 
 clone the repository and open a shell inside.
 
@@ -40,7 +40,6 @@ If you do not want to build them, add `-DBUILD_TESTS=0` to the cmake command.
 To run the tests, run the executable _unit_tests_ in the test directory.
 Run this executable only from within the test directory since otherwise the file paths won't work.
 
-
 ## How to create input Data
 
 You can find some python scripts in the _support_tools_ directory.
@@ -50,9 +49,9 @@ Note: the `create_network.py` script is not very well documented yet. Depending 
 When the network graph file is created, it can be visualized with the `draw_graph.py` script.
 
 To create an evaluation scenario, you need a graph file and have to create/modify an ini (default _create_scenario.ini_) file.
-Quick config: keep `equal_traffic = 0` and the `cluster_sizes_ = [1]`. The remaining options should be self-explanatory. 
+Quick config: keep `equal_traffic = 0` and the `cluster_sizes_ = [1]`. The remaining options should be self-explanatory.
 
-Then run the `create_scenario.py` script (pass the ini file as argument). 
+Then run the `create_scenario.py` script (pass the ini file as argument).
 
 ## How to run the Scheduler
 
@@ -60,8 +59,7 @@ Then run the `create_scenario.py` script (pass the ini file as argument).
 ./AdvancedFlowSchedulerExec -n "network file path" -s "scenario file path" -a h2s -f 4 -c 1
 ```
 
-
-### Command line parameters:
+### Command line parameters
 
 | command line option      | description                                                                                                                  |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -70,10 +68,9 @@ Then run the `create_scenario.py` script (pass the ini file as argument).
 | -r, --print-raw          | if set, the results will be printed non pretty for machine parsing                                                           |
 | -o, --offensive-planning | if set, the offensive planning will be executed when defensive can not schedule all flows. EDF requires this flag to be set. |
 
-
 The scheduling and routing can be specified with the following options and arguments.
 
-### Scheduling algorithms [-a, --algorithm]:
+### Scheduling algorithms [-a, --algorithm]
 
 | Argument | Algorithm                                              |
 |----------|--------------------------------------------------------|
@@ -82,8 +79,7 @@ The scheduling and routing can be specified with the following options and argum
 | EDF      | Earliest Deadline First simulation (requires -o flag)  |
 | FF       | First Fit assignment                                   |
 
-
-### Configuration Placement Strategy [-p, --configuration-placement]:
+### Configuration Placement Strategy [-p, --configuration-placement]
 
 The configuration placement is currently only relevant for H2S and CELF.
 
@@ -92,8 +88,7 @@ The configuration placement is currently only relevant for H2S and CELF.
 | 0        | ASAP, as soon as possible           |
 | 1        | Balanced (default)                  |
 
-
-### Flow rating (H2S only) [-f, --flow-sorting]:
+### Flow rating (H2S only) [-f, --flow-sorting]
 
 | Argument | Rating Function                  |
 |----------|----------------------------------|
@@ -103,8 +98,7 @@ The configuration placement is currently only relevant for H2S and CELF.
 | 3        | Source Node Sorting              |
 | 4        | Low Period Flows First (default) |
 
-
-### Configuration rating (H2S and CELF only) [-c, --configuration-rating]:
+### Configuration rating (H2S and CELF only) [-c, --configuration-rating]
 
 **For H2S:**
 
@@ -114,7 +108,6 @@ The configuration placement is currently only relevant for H2S and CELF.
 | 1        | Path Length (default)        |
 | 2        | End to End Delay             |
 | 3        | Bottleneck avoidance         |
-
 
 **For CELF:**
 
@@ -133,16 +126,14 @@ The configuration placement is currently only relevant for H2S and CELF.
 | DIJKSTRA_OVERLAP | Dijkstra Overlap algorithm (default) |
 | K_SHORTEST       | yen's k-shortest path algorithm      |
 
-
 ### Configurations from the paper
 
-| Algorithm | Flow Rating | Configuration Rating | Placement | 
+| Algorithm | Flow Rating | Configuration Rating | Placement |
 |-----------|-------------|----------------------|-----------|
 | H2S       | 4           | 1                    | 1         |
 | CELF      | 0           | 3                    | 1         |
 | EDF       | -           | -                    | -         |
 | FF        | -           | -                    | -         |
-
 
 ## Extending the code
 
