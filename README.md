@@ -2,12 +2,12 @@
 
 Code base for flow scheduling with queuing.
 
-When using the code, please cite the following paper:
+When using the code, please cite the following [paper](https://doi.org/10.1016/j.comnet.2025.111244):
 
 ```
 Geppert, H.; Dürr, F.; Bhowmik, S. & Rothermel, K.
-Just a Second - Scheduling Thousands of Time-Triggered Streams in Large-Scale Networks
-arXiv, 2023
+Just a second — Scheduling thousands of time-triggered streams in large-scale networks
+Computer Networks, Elsevier BV, 2025, 264, 111244
 ```
 
 ## Build
